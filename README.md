@@ -146,7 +146,7 @@ start target\site\jacoco\index.html
 
 | Métrica           | Mínimo exigido | Resultado  |
 |-------------------|----------------|------------|
-| **LINE coverage** | 85%            | **92%** ✅ |
+| **LINE coverage** | 90%            | **≥ 90%** ✅ |
 | Branch coverage   | —              | 93% ✅     |
 | Method coverage   | —              | 100% ✅    |
 | Class coverage    | —              | 100% ✅    |
@@ -173,18 +173,22 @@ pedido-crud-web/
 │   │   └── JpaAuditingConfig.java            @EnableJpaAuditing
 │   ├── domain/
 │   │   ├── Pedido.java                       Entidade JPA (modelo anêmico)
+│   │   ├── ItemPedido.java                   Entidade de item vinculada ao pedido
 │   │   ├── StatusPedido.java                 Enum com 5 estados
 │   │   └── exception/
 │   │       ├── DomainException.java          Exceção base do domínio
 │   │       └── PedidoNaoEncontradoException.java
 │   ├── dto/
-│   │   ├── PedidoRequest.java                Entrada: criar/atualizar
-│   │   ├── PedidoResponse.java               Saída: representação pública
+│   │   ├── PedidoRequest.java                Entrada: criar/atualizar pedido
+│   │   ├── PedidoResponse.java               Saída: representação pública do pedido
+│   │   ├── ItemPedidoRequest.java            Entrada: item do pedido
+│   │   ├── ItemPedidoResponse.java           Saída: item do pedido
 │   │   └── ContestarRequest.java             Entrada: contestar pedido
 │   ├── mapper/
 │   │   └── PedidoMapper.java                 Interface MapStruct
 │   ├── factory/
-│   │   └── PedidoFactory.java                Construção de instâncias de Pedido
+│   │   ├── PedidoFactory.java                Construção de instâncias de Pedido
+│   │   └── ItemPedidoFactory.java            Construção de instâncias de ItemPedido
 │   ├── repository/
 │   │   └── PedidoRepository.java             Spring Data JPA + consultas customizadas
 │   ├── service/
