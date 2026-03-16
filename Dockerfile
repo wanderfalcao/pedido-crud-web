@@ -25,6 +25,10 @@ FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
+# Usuário não-root por boas práticas de segurança
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
 # Copia o jar produzido no estágio de build
 COPY --from=build /app/target/pedido-crud-web-*.jar app.jar
 
